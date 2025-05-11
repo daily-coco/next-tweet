@@ -70,6 +70,7 @@ Vercel CLI 41.7.4
 
 ✨ vercel env pull .env.development.local
 ㄴ명령어를 실행하고 나면 아래와 같이 터미널에 출력된다.
+gi
 
 > Downloading `development` Environment Variables for daily-cocos-projects/next-tweet
 > ✅ Created .env.development.local file [182ms]

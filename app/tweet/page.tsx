@@ -2,7 +2,7 @@ import BtnAccess from '@/components/button/button-access';
 import TweetList from '@/components/tweet-list';
 import { getInitialTweet } from '@/service/tweetService';
 import Link from 'next/link';
-
+export const dynamic = 'force-dynamic';
 export default async function AllTweet() {
   const allTweets = await getInitialTweet();
   return (
