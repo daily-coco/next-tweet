@@ -24,7 +24,7 @@ export default function JoinForm() {
             name='username'
             placeholder='이름을 입력해 주세요.'
             required={true}
-            minLength={2}
+            minLength={1}
             maxLength={20}
             erros={state?.error?.fieldErrors.username}
           />

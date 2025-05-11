@@ -1,7 +1,7 @@
 'use server';
 
 import { PASSWORD_MIN_LENGTH, PASSWORD_REGEX } from '@/lib/constants';
-import { isUsernameExist } from '@/service/auth';
+import { isEmailExist, isUsernameExist } from '@/service/authService';
 import { typeToFlattenedError, z } from 'zod';
 import bcrypt from 'bcrypt';
 import db from '@/lib/db';
@@ -62,7 +62,7 @@ const joinFormSchema = z
     }
   })
   .superRefine(async ({ email }, ctx) => {
-    const emails = await isUsernameExist(email);
+    const emails = await isEmailExist(email);
     if (emails) {
       ctx.addIssue({
         code: 'custom',
@@ -72,6 +72,15 @@ const joinFormSchema = z
         fatal: true,
       });
       return z.NEVER;
+    }
+  })
+  .superRefine(({ password, passwordConfirm }, ctx) => {
+    if (password && passwordConfirm && password !== passwordConfirm) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['passwordConfirm'],
+        message: '비밀번호와 비밀번호 확인이 일치하지 않습니다.',
+      });
     }
   });
 
