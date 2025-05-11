@@ -69,6 +69,18 @@ Vercel CLI 41.7.4
 ✨ 위의 [✅ Linked to daily-cocos-projects/next-tweet (created .vercel)] 명령어까지 보여지고 나면 아래 명령어를 실행한다.
 
 ✨ vercel env pull .env.development.local
+ㄴ명령어를 실행하고 나면 아래와 같이 터미널에 출력된다.
+
+> Downloading `development` Environment Variables for daily-cocos-projects/next-tweet
+> ✅ Created .env.development.local file [182ms]
+
+✨ git add . + git commit -m + git push 진행
+
+✨ package.json 에서 빌드 스크립트 수정
+ㄴ"build": "prisma generate && prisma migrate deploy && next build",
+
+✨ prisma폴더 > migration 폴더 삭제
+: migration 충돌 이슈 가능성 + DB 마다 다 다른 기능이 있기 때문에
 
 ```
 
