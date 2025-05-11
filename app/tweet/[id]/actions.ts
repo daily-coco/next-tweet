@@ -15,7 +15,10 @@ export async function likeTweet(tweetId: number) {
       },
     });
     revalidateTag(`like-status-${tweetId}`);
-  } catch (e) {}
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (_e) {
+    // do nothing
+  }
 }
 
 export async function dislikeTweet(tweetId: number) {
@@ -31,5 +34,8 @@ export async function dislikeTweet(tweetId: number) {
       },
     });
     revalidateTag(`like-status-${tweetId}`);
-  } catch (e) {}
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (_e) {
+    // do nothing
+  }
 }

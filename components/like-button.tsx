@@ -17,7 +17,8 @@ export default function LikeButton({
 }: LikeButtonProps) {
   const [state, reducerFn] = useOptimistic(
     { isLiked, likeCount },
-    (previousState, payload) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    (previousState, _payload) => {
       return {
         isLiked: !previousState.isLiked,
         likeCount: previousState.isLiked

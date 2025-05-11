@@ -95,11 +95,12 @@ const replySchema = z.object({
     ),
 });
 
-export async function handleFormReplyTweet(_: unknown, formData: FormData) {
+export async function uploadTweet(_: unknown, formData: FormData) {
   const data = {
-    response: formData.get('reply'),
+    tweet: formData.get('tweet'),
   };
-  const result = replySchema.safeParse(data);
+
+  const result = tweetSchema.safeParse(data);
   if (!result.success) {
     return {
       error: result.error.flatten(),
@@ -108,9 +109,9 @@ export async function handleFormReplyTweet(_: unknown, formData: FormData) {
   }
   const session = await getSession();
   if (session.id) {
-    const tweet = await db.response.create({
+    const tweet = await db.tweet.create({
       data: {
-        reply: result.data.reply,
+        tweet: result.data.tweet,
         user: {
           connect: {
             id: session.id,
@@ -118,9 +119,41 @@ export async function handleFormReplyTweet(_: unknown, formData: FormData) {
         },
       },
     });
-    redirect(`/tweet/${tweet.id}`);
+    redirect(`/tweets/${tweet.id}`);
   }
 }
+// export async function handleFormReplyTweet(_: unknown, formData: FormData) {
+//   const data = {
+//     response: formData.get('reply'),
+//     tweetId: formData.get('tweetId'),
+//   };
+//   const result = replySchema.safeParse(data);
+//   if (!result.success) {
+//     return {
+//       error: result.error.flatten(),
+//       isSuccess: false,
+//     };
+//   }
+//   const session = await getSession();
+//   if (session.id) {
+//     const reply = await db.response.create({
+//       data: {
+//         reply: result.data.Response,
+//         user: {
+//           connect: {
+//             id: session.id,
+//           },
+//         },
+//         tweet: {
+//           connect: {
+//             id: tweetId,
+//           },
+//         },
+//       },
+//     });
+//     redirect(`/tweet/${tweet.id}`);
+//   }
+// }
 
 //getTweetDetail
 export async function getTweetDetail(tweetId: number) {

@@ -2,7 +2,7 @@
 
 import { useOptimistic } from 'react';
 import { useFormState } from 'react-dom';
-import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/solid';
+// import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/solid';
 
 import { addTweetResponse, InitialResponses } from '@/service/responseService';
 import Input from './input';
@@ -24,7 +24,7 @@ export default function Responses({
         ...previousResponses,
         {
           id: new Date().getDate(),
-          text: responseOptimisticValue,
+          reply: responseOptimisticValue,
           created_at: new Date(),
           tweetId,
           user: { username, id: Infinity },
