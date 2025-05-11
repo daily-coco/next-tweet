@@ -22,7 +22,7 @@ export default function Input({
         id={name}
         name={name}
         {...rest}
-        className={`${highlightStyle} ${className} px-2 bg-transparent rounded-md w-full h-10 focus:outline-none ring-1 focus:ring-4 ring-neutral-200 focus:ring-orange-500 border-none placeholder:text-neutral-400`}
+        className={`${highlightStyle} ${className}`}
       />
       {/* validation MSG */}
       {erros?.map((error, index) => (

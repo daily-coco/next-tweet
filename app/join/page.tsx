@@ -14,9 +14,9 @@ export default function JoinForm() {
   return (
     <div>
       <div className='flex flex-col gap-10 py-8 px-6'>
-        <div className='flex flex-col gap-2 *:font-medium'>
-          <h1 className='text-2xl'>안녕하세요!</h1>
-          <h2 className='text-xl'>Fill in the form below to join!</h2>
+        <div className='flex flex-col items-center gap-2 *:font-medium'>
+          <h1 className='text-2xl'>회원가입</h1>
+          <h2 className='text-[14px]'>아래 내용을 기입해 주세요</h2>
         </div>
         <form action={action} className='flex flex-col gap-3'>
           <Input

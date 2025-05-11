@@ -44,15 +44,15 @@ export default function Responses({
   };
   const [state, action] = useFormState(handleUploadResponse, null);
   return (
-    <div className='w-full flex flex-col gap-3'>
-      <form action={action} className='flex w-full gap-2 '>
+    <div className='w-full gap-3'>
+      <form action={action} className='relative pr-[75px] '>
         <Input
-          //   labelIcon={<ChatBubbleBottomCenterTextIcon />}
           name='text'
           type='text'
           required
-          placeholder='Write a response.'
+          placeholder='이 Tweet에 답변 남기기'
           erros={state?.fieldErrors[0]}
+          className='w-full'
         />
         <input
           className='hidden'
@@ -60,7 +60,7 @@ export default function Responses({
           name='tweetId'
           value={tweetId}
         />
-        <button className='ml-auto min-w-14 bg-stone-300 rounded-xl p-3'>
+        <button className='absolute top-0 right-0  text-[14px] w-14 bg-[#807959] text-white rounded-xl p-3 h-[42px]'>
           추가
         </button>
       </form>

@@ -16,10 +16,7 @@ const loginFormSchema = z.object({
     })
     .email()
     .toLowerCase()
-    .refine(
-      isEmailExist,
-      '해당 계정이 존재하지 않습니다. 다시 한 번 확인해 주세요.'
-    ),
+    .refine(isEmailExist, '해당 계정이 존재하지 않습니다.'),
   password: z
     .string({
       required_error: '비밀번호 입력은 필수 입니다.',

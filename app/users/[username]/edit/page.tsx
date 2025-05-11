@@ -30,8 +30,10 @@ export default function EditPage() {
     : '';
   const formError = state?.error?.formErrors?.[0];
   return (
-    <div>
-      <h1>{username}님의 프로필 수정</h1>
+    <div className='flex flex-col gap-10 py-8 px-6'>
+      <div className='flex flex-col items-center gap-2 *:font-medium'>
+        <h1 className='text-2xl'>{username}님의 프로필 수정</h1>
+      </div>
       <div>
         {/* 사용자 이름  이메일, 바이오 비밀번호 변경 */}
         <form action={action} className='flex flex-col gap-3'>

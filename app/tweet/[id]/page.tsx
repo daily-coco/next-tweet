@@ -47,13 +47,18 @@ export default async function TweetDetail({
   const { isLiked, likeCount } = await getCachedLikeStatus(id);
 
   return (
-    <div className='pb-36 w-full'>
-      <h3 className='p-5 flex items-center gap-3 border-b border-neutral-500'>
-        {tweet.user.username}
-      </h3>
-      <p className='p-5 min-h-56'>{tweet.tweet}</p>
-      <div className='w-full flex flex-col gap-5'>
-        <LikeButton isLiked={isLiked} likeCount={likeCount} tweetId={id} />
+    <div className='flex flex-col p-10 w-full'>
+      <div className='relative flex flex-col rounded-md border-2 border-[#a1cab9] bg-white'>
+        <h1 className='px-5 py-3 flex items-center text-[16px] font-[700]'>
+          {tweet.user.username}
+        </h1>
+        <div className='px-5 p-2 min-h-56'>{tweet.tweet}</div>
+
+        <div className='absolute top-5 right-5'>
+          <LikeButton isLiked={isLiked} likeCount={likeCount} tweetId={id} />
+        </div>
+      </div>
+      <div className='mt-10 w-full flex flex-col gap-5'>
         <Responses
           initialResponses={responses}
           tweetId={id}

@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import '@/styles/globals.css';
+import { Nanum_Gothic } from 'next/font/google';
 
+const nanumGothic = Nanum_Gothic({
+  subsets: ['latin'], // korea 는 미지원에 따른 에러 출력
+  weight: ['400', '700'], // 선택한 굵기
+  display: 'swap',
+  variable: '--font-nanum',
+});
 export const metadata: Metadata = {
   title: {
     template: '%s | Tweet',
@@ -16,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className={`${nanumGothic.variable}`}>
       <body>{children}</body>
     </html>
   );

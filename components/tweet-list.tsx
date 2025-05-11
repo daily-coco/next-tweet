@@ -24,30 +24,31 @@ export default function TweetList({
   }, [page]);
 
   return (
-    <div className=''>
-      <h1>Tweet List</h1>
-      <div className='p-5 flex flex-col gap-5'>
+    <div className='mt-10'>
+      <div className='flex flex-col gap-5'>
         {tweets.map((tweet) => (
           <TweetItem key={tweet.id} {...tweet} />
         ))}
       </div>
-      <div className='w-full flex bottom-32 fixed mx-auto gap-10 items-center justify-center'>
-        <button
-          className='disabled:text-stone-200'
-          onClick={() => setPage((prev) => (prev === 1 ? prev : prev - 1))}
-          disabled={page === 1}
-        >
-          <ChevronLeftIcon width={20} height={20} />
-        </button>
-        <span>{page}</span>
-        <button
-          className='disabled:text-stone-200'
-          onClick={() => setPage((prev) => (isLastPage ? prev : prev + 1))}
-          disabled={isLastPage}
-        >
-          <ChevronRightIcon width={20} height={20} />
-        </button>
-      </div>
+      {tweets.length > 0 && (
+        <div className='w-full flex bottom-32 fixed mx-auto gap-10 items-center justify-center'>
+          <button
+            className='disabled:text-stone-200'
+            onClick={() => setPage((prev) => (prev === 1 ? prev : prev - 1))}
+            disabled={page === 1}
+          >
+            <ChevronLeftIcon width={20} height={20} />
+          </button>
+          <span>{page}</span>
+          <button
+            className='disabled:text-stone-200'
+            onClick={() => setPage((prev) => (isLastPage ? prev : prev + 1))}
+            disabled={isLastPage}
+          >
+            <ChevronRightIcon width={20} height={20} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }

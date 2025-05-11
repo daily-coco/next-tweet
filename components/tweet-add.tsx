@@ -19,7 +19,7 @@ export default function AddTweet() {
         {!state?.isSuccess && (
           <p className='text-red-400'>{state?.error.fieldErrors.tweet}</p>
         )}
-        <BtnAccess text='Add' />
+        <BtnAccess text='글쓰기' />
       </div>
     </form>
   );
