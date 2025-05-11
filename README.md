@@ -82,6 +82,17 @@ Vercel CLI 41.7.4
 ✨ prisma폴더 > migration 폴더 삭제
 : migration 충돌 이슈 가능성 + DB 마다 다 다른 기능이 있기 때문에
 
+✨ npx prisma migrate dev --create-only
+ㄴ 이후 git에 올리고 배포 진행
+
+// 환경변수 설정 (vercell
+✨ vscode 터미널로 와서 vercel env add LOL production 입력 후 엔터
+ㄴ 아무렇게 이름 작명 후 엔터해주면 아래처럼 완료됨을 확인 가능
+? What's the value of LOL? tweetloldata
+✅ Added Environment Variable LOL to Project next-tweet [224ms]
+ㄴ위를 통해서 프로덕션 환경에 LOL 변수가 생긴다.
+ㄴ환경 변수 설정 위치 : (https://vercel.com/(사용자명명)-projects/next-tweet/settings/environment-variables)
+
 ```
 
 ### 라이브러리
