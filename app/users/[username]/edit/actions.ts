@@ -168,7 +168,7 @@ export async function handleEditForm(
   }
 
   const updatedFields: string[] = [];
-  const updateData: Record<string, any> = {};
+  const updateData: Record<string, unknown> = {};
 
   const { username, email, bio, password } = result.data;
   if (username && username !== user.username) {

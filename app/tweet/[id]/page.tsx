@@ -6,7 +6,7 @@ import { getLikeStatus } from '@/service/likeService';
 import { getInitialResponse } from '@/service/responseService';
 
 import Responses from '@/components/responses';
-import LikeButton from '@/components/button/like-button';
+import LikeButton from '@/components/like-button';
 import getSession from '@/lib/session';
 
 async function getCachedLikeStatus(tweetId: number) {

@@ -3,7 +3,13 @@
 import Input from '@/components/input';
 import { useFormState } from 'react-dom';
 import { handlerSearch } from './actions';
-
+interface ITweetData {
+  id: number;
+  tweet: string;
+  user: {
+    username: string;
+  };
+}
 export default function SearchPage() {
   const [results, action] = useFormState(handlerSearch, []);
   return (
@@ -23,7 +29,7 @@ export default function SearchPage() {
       </div>
       <div>
         {results.length > 0 ? (
-          results.map((tweet: any) => (
+          results.map((tweet: ITweetData) => (
             <div key={tweet.id} className='border-b py-2'>
               <p>{tweet.tweet}</p>
               <small className='text-gray-500'>@{tweet.user.username}</small>

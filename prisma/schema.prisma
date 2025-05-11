@@ -52,4 +52,7 @@ model Response {
   user       User     @relation(fields: [userId], references: [id])
   tweetId    Int
   userId     Int
+
+  @@index([userId])
+  @@index([tweetId])
 }
