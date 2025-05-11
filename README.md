@@ -51,6 +51,25 @@ npm i bcrypt
 npm i @types/bcrypt
 
 npm i iron-session
+
+```
+
+#vercel DB 연결
+✨ npm i -g vercel
+✨ 설치 이후에 `vercel login`을 입력 -> 로그인할 사이트 방향키로 선택 후 엔터 -> 로그인 진행( 브라우저로 계정 로그인 진행)
+✨ 로그인 완료 이후 다시 터미널로 돌아와서 `vercel link`를 입력 후 'Y' 선택하고 이 다음은 아래와 같이 진행한다.
+✨ vercel link 입력 후
+✨ 아래 터미널로그처럼 진행하면됨.
+Vercel CLI 41.7.4
+? Set up “D:\next-tweet”? yes
+? Which scope should contain your project? daily-coco's projects
+? Found project “daily-cocos-projects/next-tweet”. Link to it? yes
+✅ Linked to daily-cocos-projects/next-tweet (created .vercel)
+
+✨ 위의 [✅ Linked to daily-cocos-projects/next-tweet (created .vercel)] 명령어까지 보여지고 나면 아래 명령어를 실행한다.
+
+✨ vercel env pull .env.development.local
+
 ```
 
 ### 라이브러리
@@ -72,3 +91,4 @@ MIT
 ## Writer
 
 NomadCoder_coco
+```
