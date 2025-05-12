@@ -82,5 +82,5 @@ export async function loginHandleForm(
   const session = await getSession();
   session.id = user.id;
   await session.save();
-  redirect(`/users/${user.username}`);
+  redirect(`/users/${encodeURIComponent(user.username)}`);
 }

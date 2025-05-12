@@ -10,13 +10,24 @@ import getSession from '@/lib/session';
 
 const joinFormSchema = z
   .object({
-    username: z
-      .string({
-        invalid_type_error: '정확한 이름을 입력해 주세요.',
-        required_error: '이름은 필수 입력입니다.',
-      })
-      .toLowerCase()
-      .trim(),
+    username: z.preprocess(
+      (val) => {
+        if (typeof val !== 'string') return val;
+
+        const trimmed = val.trim();
+
+        // 영어만 있는 경우: 소문자로 변환
+        const isEnglish = /^[a-zA-Z\s]+$/.test(trimmed);
+        return isEnglish ? trimmed.toLowerCase() : trimmed;
+      },
+      z
+        .string({
+          invalid_type_error: '정확한 이름을 입력해 주세요.',
+          required_error: '이름은 필수 입력입니다.',
+        })
+        .trim()
+        .min(1, '이름은 최소 1자 이상이어야 합니다.')
+    ),
     email: z
       .string({
         invalid_type_error: '정확한 이메일 주소를 입력해 주세요.',
